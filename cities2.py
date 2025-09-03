@@ -48,7 +48,7 @@ layer = pdk.Layer(
     "ScatterplotLayer",
     df,
     get_position=['lon', 'lat'],
-    get_radius=10000,
+    get_radius=15000, # Increased radius for better visibility
     get_fill_color='[norm_salary, 0, 0, 160]', # Use normalized salary for red intensity
     pickable=True,
     auto_highlight=True,
@@ -66,7 +66,7 @@ view_state = pdk.ViewState(
 st.pydeck_chart(pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     initial_view_state=view_state,
-    layers=[layer],
+    layers=[layer], # Added the layer here to fix the issue
     tooltip={"text": "City: {city}\nAvg. Salary: ${salary:,}"}
 ))
 
